@@ -384,7 +384,7 @@ section {
   left: 0;
   width: 60vw;
   height: 40vw;
-  background: url(./../assets/13.png) no-repeat;
+  background: url(./../assets/13.jpg) no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -470,7 +470,7 @@ section {
   left: 0;
   width: 65vw;
   height: 40vw;
-  background: url(./../assets/1.png) no-repeat;
+  background: url(./../assets/1.jpg) no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -495,7 +495,7 @@ section {
 
 .grid-container.three .gridLayer.centerPiece .gridBlock {
   width: 65vw;
-  background: url(./../assets/2.png) no-repeat;
+  background: url(./../assets/2.jpg) no-repeat;
   background-size: cover;
   background-position: center;
 }
