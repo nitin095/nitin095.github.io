@@ -532,7 +532,7 @@ gsap.from('#skills .main1', 1, {
   }
 })
 
-gsap.from('#contact form', 2, {
+gsap.from('#contact #form', 2, {
   y: 200,
   scale: 0.8,
   skewY: 30,
@@ -737,3 +737,56 @@ $('button').on('mouseleave', function () {
   cancelAnimationFrame(myReq);
 })
 
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+var firebaseConfig = {
+  apiKey: "AIzaSyBF-sionJcXnxBi1KAyQlbg9JPETnr8ZHs",
+  authDomain: "my-app-095.firebaseapp.com",
+  projectId: "my-app-095",
+  // storageBucket: "my-app-095.appspot.com",
+  // messagingSenderId: "595447145271",
+  appId: "1:595447145271:web:fb6d56eb4b847d9158b0b2",
+  // measurementId: "G-WBYXD4178V"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
+var db = firebase.firestore();
+
+function submit() {
+  db.collection("enquires").add({
+    name: $('#name').val(),
+    email: $('#email').val(),
+    message: $('#message').val(),
+    isWeb: $('#web').prop('checked'),
+    isAndroid: $('#android').prop('checked'),
+    isIos: $('#ios').prop('checked')
+  })
+    .then((docRef) => {
+      console.log("Document written with ID: ", docRef.id);
+      animateForm()
+    })
+    .catch((error) => {
+      console.error("Error adding document: ", error);
+    });
+}
+
+
+function animateForm() {
+  gsap.timeline()
+    .to('#form .group,#form button', 1, {
+      opacity: 0, ease: 'expo'
+    })
+    .set('#form', { transformOrigin: 'center' })
+    .to('#form', 2, {
+      rotateY: 180,
+      background: 'linear-gradient(35deg,rgba(0, 142, 201, 0.2),rgba(215, 115, 160, 0.2))',
+      ease: 'expo'
+    }, 0.3)
+    .to('#form .sent_msg', 1.5, {
+      opacity: 1, y: 0, ease: 'expo'
+    }, 0.5)
+}

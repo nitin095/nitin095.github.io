@@ -215,7 +215,7 @@ section {
 }
 
 #contact {
-  form {
+  #form {
     width: 30%;
     display: block;
     margin: 10vh auto;
@@ -228,6 +228,8 @@ section {
       -40px 100px 150px -70px rgba(0, 142, 201, 0.4);
     transition: box-shadow 1s;
     transform-origin: bottom;
+    position: relative;
+    // background: linear-gradient(35deg,rgba(0, 142, 201, 0.2),rgba(215, 115, 160, 0.2));
     .group {
       display: flex;
       flex-direction: column;
@@ -263,6 +265,28 @@ section {
         40px 60px 180px -50px rgba(215, 115, 160, 0.8),
         -40px 100px 150px -70px rgba(0, 142, 201, 0.8);
       transition: box-shadow 1s;
+    }
+    .sent_msg {
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(30%) rotateY(180deg);
+      pointer-events: none;
+      opacity: 0;
+      img {
+        height: 20vw;
+      }
+      text-align: center;
+      h1{
+        color: #05419f;
+        font-weight: 800;
+        margin: 50px 0;
+        font-size: 2.5rem;
+      }
+      p{
+        color: #999;
+        font-size: 1.5rem;
+      }
     }
   }
 }
@@ -882,7 +906,7 @@ svg#blob {
   }
   #contact {
     overflow: visible;
-    form {
+    #form {
       width: 95%;
       padding: 1px 20px 20px;
       textarea {
